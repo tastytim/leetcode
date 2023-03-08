@@ -22,6 +22,10 @@ var missingNumber = function (nums) {
     //formula arifmeticheskoi progressii Sn = ((A1 + An)n / 2)
     let n = nums.length
     return n * (n+1) / 2 - nums.reduce((a,b)=> a + b,0)
+
+    //3 * (3+1) / 2 
+    //12 - 4
+    //8
   };
   // @lc code=end
 
