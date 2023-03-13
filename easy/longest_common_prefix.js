@@ -1,36 +1,33 @@
-function findMinLength(arr, n) {
-  let min = arr[0].length;
-  for (let i = 1; i < n; i++) {
-    if (arr[i].length < min) {
-      min = arr[i].length;
+
+
+var longestCommonPrefix = function (strs) {
+  let shortPrefix = strs[0];
+  let current;
+  let prefix = "";
+
+  
+  for (let i = 0; i < strs.length; i++) {
+    if (strs[i].length < shortPrefix.length) {
+      shortPrefix = strs[i];
     }
   }
-  return min;
-}
 
-function commonPrefix(arr) {
-  let arrWordsLength = arr.length;
-  let minArrWordLen = findMinLength(arr, arrWordsLength);
-  let result = "";
-  let current;
 
-  for (let i = 0; i < minArrWordLen; i++) {
-    current = arr[0][i];
-    for (let j = 1; j < arrWordsLength; j++) {
-      if (arr[j][i] != current) {
-        return result;
+  
+  for (let j = 0; j < shortPrefix.length; j++) {
+    current = strs[0][j];
+    console.log(current)
+    for (let m = 1; m < strs.length; m++) {
+      if (current != strs[m][j]) {
+        return prefix;
       }
     }
-    result += current;
+    prefix += current;
   }
-  return result;
+  return prefix;
 }
 
-let arr = ["flower", "flow", "flight"];
-let ans = commonPrefix(arr);
+let strs = ["flower", "flow", "flight"];
+console.log(longestCommonPrefix(strs));
 
-if (ans.length > 0) {
-  console.log("The longest common prefix is " + ans);
-} else {
-  console.log("There is no common prefix");
-}
+
