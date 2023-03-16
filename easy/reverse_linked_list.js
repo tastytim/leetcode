@@ -23,14 +23,9 @@ var reverseList = function(head) {
     
     while(current != null){
         next = current.next 
-        console.log('NEXT',next)
         current.next = prev 
-        console.log('CUR>NEXT',current.next)
         prev = current 
-        console.log('PREV',prev)
         current = next 
-        console.log('CUR',current)
-
     }
 
     head = prev
