@@ -39,5 +39,16 @@ var isValidBST = function (root) {
     inOrderTraversal(root);
     return isValid;
   };
+
+
+//   function isValidBST(node, minVal = -Infinity, maxVal = Infinity) {
+//     if (!node) {
+//         return true;
+//     }
+//     if (node.val <= minVal || node.val >= maxVal) {
+//         return false;
+//     }
+//     return isValidBST(node.left, minVal, node.val) && isValidBST(node.right, node.val, maxVal);
+// }
   
   
