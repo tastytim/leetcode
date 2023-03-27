@@ -17,17 +17,38 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
+// var isSymmetric = function (root) {
+//   if (!root) return true; 
+//   return isMirror(root.left, root.right);
+// };
+
+// function isMirror(node1, node2) {
+//   if (!node1 && !node2) return true;
+//   if (!node1 || !node2) return false;
+//   return (
+//     node1.val === node2.val &&
+//     isMirror(node1.left, node2.right) &&
+//     isMirror(node1.right, node2.left)
+//   );
+// }
+
+
+
 var isSymmetric = function (root) {
-  if (!root) return true; 
   return isMirror(root.left, root.right);
 };
 
-function isMirror(node1, node2) {
+var isMirror = (node1, node2) => {
   if (!node1 && !node2) return true;
-  if (!node1 || !node2) return false;
-  return (
-    node1.val === node2.val &&
-    isMirror(node1.left, node2.right) &&
-    isMirror(node1.right, node2.left)
-  );
-}
+  
+
+  if (node1 != null 
+    && node2 != null
+     && node1.val == node2.val) {
+    return (
+      isMirror(node1.left, node2.right) && isMirror(node1.right, node2.left)
+    );
+  }
+
+  return false;
+};
